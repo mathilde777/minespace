@@ -1,32 +1,19 @@
-package view;
+package src.view;
 
-import model.Difficulty;
 import model.PlayableMinesweeper;
+import notifier.IGameStateNotifier;
+import src.model.Difficulty;
 
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.*;
 import javax.swing.plaf.DimensionUIResource;
-
+import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
-import java.awt.GridLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-
-import notifier.IGameStateNotifier;
 
 public class MinesweeperView implements IGameStateNotifier {
     public static final int MAX_TIME = 1;//in minutes
@@ -41,7 +28,7 @@ public class MinesweeperView implements IGameStateNotifier {
     private JMenuBar menuBar;
     private JMenu gameMenu;
     private JMenuItem easyGame, mediumGame, hardGame;
-    private TileView[][] tiles;
+    private view.TileView[][] tiles;
     private JPanel world = new JPanel();
     private JPanel timerPanel = new JPanel();
     private JPanel flagPanel = new JPanel();
@@ -150,10 +137,10 @@ public class MinesweeperView implements IGameStateNotifier {
         this.window.setSize(col * TILE_SIZE, row * TILE_SIZE + 30);
         this.world.removeAll();
         
-        this.tiles = new TileView[row][col];
+        this.tiles = new view.TileView[row][col];
         for (int i=0; i<row; ++i) {
             for (int j=0; j<col; ++j) {
-                TileView temp = new TileView(j, i); 
+                view.TileView temp = new view.TileView(j, i);
                 temp.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mousePressed(MouseEvent arg0) {

@@ -1,6 +1,7 @@
 package model;
 
 import notifier.IGameStateNotifier;
+import src.model.Difficulty;
 
 public interface PlayableMinesweeper {
     int getWidth();

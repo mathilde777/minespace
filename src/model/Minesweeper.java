@@ -1,8 +1,11 @@
-package model;
+package src.model;
 
-public class Minesweeper extends AbstractMineSweeper{
+import model.AbstractTile;
+
+public class Minesweeper extends model.AbstractMineSweeper {
     @Override
     public int getWidth() {
+
         return 0;
     }
 

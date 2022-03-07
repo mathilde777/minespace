@@ -1,4 +1,4 @@
-package notifier;
+package src.notifier;
 
 public interface ITileStateNotifier {
     void notifyOpened(int explosiveNeighbourCount);
